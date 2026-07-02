@@ -16,7 +16,7 @@ const server = http.createServer(app);
 // Initialize Socket.io
 export const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:5173', process.env.FRONTEND_URL || 'your_production_url'],
+    origin: ['http://localhost:5173', 'https://ai-interview-three-smoky.vercel.app', process.env.FRONTEND_URL || 'your_production_url'],
     methods: ['GET', 'POST'],
     credentials: true,
   },

@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:5173', process.env.FRONTEND_URL || 'your_production_url'],
+  origin: ['http://localhost:5173', 'https://ai-interview-three-smoky.vercel.app', process.env.FRONTEND_URL || 'your_production_url'],
   credentials: true,
 }));
 
