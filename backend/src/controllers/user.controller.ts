@@ -96,7 +96,7 @@ export const getDashboardStats = async (req: AuthRequest, res: Response) => {
       const score = interview.feedback?.overallScore || 0;
       totalScore += score;
       
-      const month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(interview.createdAt);
+      const month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format((interview as any).createdAt);
       const existingMonth = performanceData.find(d => d.name === month);
       if (existingMonth) {
         existingMonth.score = Math.round((existingMonth.score + score) / 2);
