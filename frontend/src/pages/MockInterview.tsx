@@ -6,8 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getInterviewById } from '../services/interview.service';
 import { Button } from '../components/ui/Button';
 import { Send, LogOut, CheckCircle, Video, Mic, MicOff } from 'lucide-react';
-
-const SOCKET_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const SOCKET_URL = import.meta.env.VITE_API_URL || 'https://ai-interview-gv54.onrender.com';
 
 const MockInterview: React.FC = () => {
   const { id } = useParams<{ id: string }>();

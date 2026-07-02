@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://ai-interview-gv54.onrender.com/api',
   withCredentials: true,
 });
 
@@ -27,16 +27,16 @@ api.interceptors.response.use(
 
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/auth/refresh`,
+          `${import.meta.env.VITE_API_URL || 'https://ai-interview-gv54.onrender.com/api'}/auth/refresh`,
           {},
           { withCredentials: true }
         );
-        
+
         const newAccessToken = response.data.accessToken;
         useAuthStore.getState().updateUser({ accessToken: newAccessToken });
-        
+
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-        
+
         return api(originalRequest);
       } catch (refreshError) {
         useAuthStore.getState().logout();
